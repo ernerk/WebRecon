@@ -1,115 +1,115 @@
 # Web Reconnaissance Tool
 
-Terminal tabanlı bir web keşif aracı. Bu araç, verilen bir web sitesinin alt alan adlarını (subdomains) tarar ve açık portları tespit eder.
+A terminal-based web reconnaissance tool. This tool scans subdomains of a given website and detects open ports.
 
-## Özellikler
+## Features
 
-- Alt alan adı (subdomain) keşfi
-- Port taraması
-- Servis ve versiyon tespiti
-- Çoklu iş parçacığı desteği (multithreading)
-- Sonuçları dosyaya kaydetme
+- Subdomain discovery
+- Port scanning
+- Service and version detection
+- Multithreading support
+- Save results to file
 
-## Gereksinimler
+## Requirements
 
 - Python 3.6+
 - nmap
-- Aşağıdaki Python paketleri:
+- The following Python packages:
   - dnspython
   - requests
   - python-nmap
   - tqdm
 
-## Kurulum
+## Installation
 
-1. Gereksinimleri yükleyin:
+1. Install the requirements:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Kali Linux'ta nmap yüklü değilse:
+2. If nmap is not installed on Kali Linux:
 
 ```bash
 apt-get install nmap
 ```
 
-## Kali Linux'a Kurulum
+## Installation on Kali Linux
 
-Aşağıdaki adımları takip ederek aracı Kali Linux'a kurabilirsiniz:
+Follow these steps to install the tool on Kali Linux:
 
-1. Öncelikle, projeyi bilgisayarınıza indirin:
+1. First, download the project to your computer:
 
 ```bash
 git clone https://github.com/ernerk/WebRecon.git
 cd WebRecon
 ```
 
-2. Gerekli paketleri yükleyin:
+2. Install the required packages:
 
 ```bash
 pip3 install -r requirements.txt
 ```
 
-3. nmap'in yüklü olduğundan emin olun:
+3. Make sure nmap is installed:
 
 ```bash
 sudo apt-get update && sudo apt-get install -y nmap
 ```
 
-4. Çalıştırma izinlerini ayarlayın:
+4. Set execution permissions:
 
 ```bash
 chmod +x run.sh
 ```
 
-5. Aracı çalıştırın:
+5. Run the tool:
 
 ```bash
 ./run.sh -t example.com
 ```
 
-Alternatif olarak, aracı doğrudan Python ile de çalıştırabilirsiniz:
+Alternatively, you can run the tool directly with Python:
 
 ```bash
 python3 web_recon.py -t example.com
 ```
 
-## Kullanım
+## Usage
 
 ```bash
 python web_recon.py -t example.com
 ```
 
-### Parametreler
+### Parameters
 
-- `-t, --target`: Hedef URL veya alan adı (zorunlu)
-- `-o, --output`: Sonuçları kaydetmek için dosya adı (isteğe bağlı)
-- `-p, --ports`: Taranacak portlar (virgülle ayrılmış, varsayılan: 21,22,23,25,53,80,110,111,135,139,143,443,445,993,995,1723,3306,3389,5900,8080)
-- `-j, --threads`: Tarama için iş parçacığı sayısı (varsayılan: 10)
+- `-t, --target`: Target URL or domain name (required)
+- `-o, --output`: Filename to save results (optional)
+- `-p, --ports`: Ports to scan (comma-separated, default: 21,22,23,25,53,80,110,111,135,139,143,443,445,993,995,1723,3306,3389,5900,8080)
+- `-j, --threads`: Number of threads for scanning (default: 10)
 
-### Örnekler
+### Examples
 
-Basit bir tarama:
+Simple scan:
 ```bash
 python web_recon.py -t example.com
 ```
 
-Sonuçları dosyaya kaydetme:
+Save results to file:
 ```bash
-python web_recon.py -t example.com -o sonuclar.txt
+python web_recon.py -t example.com -o results.txt
 ```
 
-Belirli portları tarama:
+Scan specific ports:
 ```bash
 python web_recon.py -t example.com -p 80,443,8080
 ```
 
-İş parçacığı sayısını artırma:
+Increase number of threads:
 ```bash
 python web_recon.py -t example.com -j 20
 ```
 
-## Güvenlik Notu
+## Security Note
 
-Bu aracı yalnızca izin verilen sistemlerde kullanın. İzinsiz tarama yapmak yasal sorunlara neden olabilir.
+Only use this tool on systems you have permission to scan. Unauthorized scanning may cause legal issues.
