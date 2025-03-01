@@ -41,8 +41,8 @@ Aşağıdaki adımları takip ederek aracı Kali Linux'a kurabilirsiniz:
 1. Öncelikle, projeyi bilgisayarınıza indirin:
 
 ```bash
-git clone https://github.com/kullaniciadi/WebReconTool.git
-cd WebReconTool
+git clone https://github.com/ernerk/WebRecon.git
+cd WebRecon
 ```
 
 2. Gerekli paketleri yükleyin:
